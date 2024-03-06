@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Card from "./components/Card";
@@ -6,7 +5,7 @@ import Card from "./components/Card";
 const options = {
 	method: "GET",
 	headers: {
-		"X-RapidAPI-Key": process.env.RAPID_API_KEY,
+		"X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
 		"X-RapidAPI-Host": "mmo-games.p.rapidapi.com",
 	},
 };
@@ -80,6 +79,7 @@ function App() {
 			{error && <div className="error">{error}</div>}
 			<div className="library">
 				{games &&
+					games.length > 0 &&
 					games.map((game, index) => {
 						return <Card game={game} key={index} />;
 					})}
