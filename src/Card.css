@@ -8,6 +8,7 @@
     font-family: inherit;
     padding: 2rem;
     margin: 1rem 0.75rem;
+    justify-content: space-between;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
