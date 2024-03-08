@@ -36,7 +36,6 @@ function App() {
 				options
 			);
 			let data = await response.json();
-			console.log(data);
 
 			if (data?.status == 0 || data?.message) {
 				setGames([]);
@@ -54,6 +53,84 @@ function App() {
 		}
 	};
 
+	const sortGames = async (e) => {
+		e.preventDefault();
+
+		// Making the fetch request by adding the searchCategory to the URL
+		try {
+			let response = await fetch(
+				`https://mmo-games.p.rapidapi.com/games?sort-by=alphabetical`,
+				options
+			);
+			let data = await response.json();
+
+			if (data?.status == 0 || data?.message) {
+				setGames([]);
+				setError("Error sorting games, please try again later.");
+				return;
+			}
+
+			setGames(data);
+			setError("");
+		} catch (error) {
+			setGames([]);
+			setError(error);
+		}
+	};
+
+	const filterByPC = async () => {
+		try {
+			let response = await fetch(
+				`https://mmo-games.p.rapidapi.com/games?platform=pc`,
+				options
+			);
+			let data = await response.json();
+
+			if (data?.status == 0 || data?.message) {
+				setGames([]);
+				setError("Error filtering PC games, please try again later.");
+				return;
+			}
+
+			setGames(data);
+			setError("");
+		} catch (error) {
+			setGames([]);
+			setError(error);
+		}
+	};
+
+	const filterByBrowser = async () => {
+		try {
+			let response = await fetch(
+				`https://mmo-games.p.rapidapi.com/games?platform=browser`,
+				options
+			);
+			let data = await response.json();
+
+			if (data?.status == 0 || data?.message) {
+				setGames([]);
+				setError(
+					"Error filtering browser games, please try again later."
+				);
+				return;
+			}
+
+			setGames(data);
+			setError("");
+		} catch (error) {
+			setGames([]);
+			setError(error);
+		}
+	};
+
+	const resetFilters = async () => {
+		getData();
+		setSearchCategory("");
+		setError("");
+		document.getElementsByClassName("searchBar")[0].value = "";
+	};
+
 	useEffect(() => {
 		getData();
 		setError("");
@@ -64,16 +141,47 @@ function App() {
 			<h1 className="header">MMO Games Library</h1>
 			<div className="form">
 				<form onSubmit={(e) => filterByCategory(e)}>
-					<input
-						className="searchBar"
-						type="text"
-						placeholder="Category (Shooter, etc.)"
-						name="search"
-						onChange={(e) => {
-							setSearchCategory(e.target.value);
-						}}
-					/>
-					<input className="submitBtn" type="submit" value="Filter" />
+					<div className="mainInput">
+						<input
+							className="searchBar"
+							type="text"
+							placeholder="Category (Shooter, etc.)"
+							name="search"
+							onChange={(e) => {
+								setSearchCategory(e.target.value);
+							}}
+						/>
+						<input
+							className="submitBtn"
+							type="submit"
+							value="Filter"
+						/>
+					</div>
+					<div className="extraOptions">
+						<button
+							className="sortBtn"
+							onClick={(e) => sortGames(e)}>
+							Sort Alphabetically
+						</button>
+						<button
+							className="pcBtn"
+							onClick={(e) => filterByPC()}
+							value="Reset All Filters">
+							PC (Windows)
+						</button>
+						<button
+							className="browserBtn"
+							onClick={(e) => filterByBrowser()}
+							value="Reset All Filters">
+							Browser
+						</button>
+						<button
+							className="resetBtn"
+							onClick={(e) => resetFilters()}
+							value="Reset All Filters">
+							Reset
+						</button>
+					</div>
 				</form>
 			</div>
 			{error && <div className="error">{error}</div>}

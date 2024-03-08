@@ -18,10 +18,24 @@
 
 .form form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   font-size: 1.1rem;
 }
+
+.mainInput {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.extraOptions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
 
 .searchBar {
   width: 15rem;
@@ -42,10 +56,6 @@
   background-color: var(--accent);
   color: var(--headline);
   border: none;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  font-size: inherit;
-  cursor: pointer;
 }
 
 .library {
@@ -67,4 +77,23 @@
   font-weight: 500;
   color: var(--accent);
   margin-top: 2rem;
+}
+
+.submitBtn, .sortBtn, .resetBtn, .pcBtn, .browserBtn {
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.sortBtn, .resetBtn, .pcBtn, .browserBtn {
+  background-color: var(--background);
+  color: white;
+  border: 2px solid white;
+}
+
+.sortBtn:hover, .resetBtn:hover, .pcBtn:hover, .browserBtn:hover {
+  background-color: white;
+  color: black;
 }
