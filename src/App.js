@@ -78,7 +78,9 @@ function App() {
 		}
 	};
 
-	const filterByPC = async () => {
+	const filterByPC = async (e) => {
+		e.preventDefault();
+
 		try {
 			let response = await fetch(
 				`https://mmo-games.p.rapidapi.com/games?platform=pc`,
@@ -100,7 +102,9 @@ function App() {
 		}
 	};
 
-	const filterByBrowser = async () => {
+	const filterByBrowser = async (e) => {
+		e.preventDefault();
+
 		try {
 			let response = await fetch(
 				`https://mmo-games.p.rapidapi.com/games?platform=browser`,
@@ -124,7 +128,8 @@ function App() {
 		}
 	};
 
-	const resetFilters = async () => {
+	const resetFilters = async (e) => {
+		e.preventDefault();
 		getData();
 		setSearchCategory("");
 		setError("");
@@ -165,19 +170,19 @@ function App() {
 						</button>
 						<button
 							className="pcBtn"
-							onClick={(e) => filterByPC()}
+							onClick={(e) => filterByPC(e)}
 							value="Reset All Filters">
 							PC (Windows)
 						</button>
 						<button
 							className="browserBtn"
-							onClick={(e) => filterByBrowser()}
+							onClick={(e) => filterByBrowser(e)}
 							value="Reset All Filters">
 							Browser
 						</button>
 						<button
 							className="resetBtn"
-							onClick={(e) => resetFilters()}
+							onClick={(e) => resetFilters(e)}
 							value="Reset All Filters">
 							Reset
 						</button>

@@ -72,7 +72,9 @@
   font-size: 1.2rem;
   font-weight: 500;
   color: var(--accent);
-  margin-top: 2rem;
+  margin-top: 1rem;
+  padding: 2rem;
+  text-align: center;
 }
 
 .loading {
