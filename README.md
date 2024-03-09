@@ -1,4 +1,4 @@
-# MMO Games Library [Live Link](https://shaz-momin.github.io/cs378-p4/)
+# MMO Games Library &rarr; [Live Link](https://shaz-momin.github.io/cs378-p4/)
 
 **VIDEO DEMO**
 
