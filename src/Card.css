@@ -46,6 +46,9 @@
     border-radius: 0.3rem;
 }
 
+.subheading div:nth-last-child(1) {
+    margin-left: 1rem;
+}
 
 .card p {
     color: rgba(0, 0, 0, 0.6);
