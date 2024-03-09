@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# MMO Games Library [Live Link](https://shaz-momin.github.io/cs378-p4/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**VIDEO DEMO**
+
+https://github.com/Shaz-Momin/cs378-p4/assets/50510402/2ffcd9a7-d959-44c6-a4f8-6cb0991dfe24
+
+
 
 ## Available Scripts
 
